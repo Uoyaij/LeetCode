@@ -29,6 +29,7 @@ def test_2_wei_bag_problem1(bag_size, weight, value) -> int:
 
     print(dp)
 
+
 # 一维DP（滚动数组） 相当于上一层的可以重复利用
 def test_1_wei_bag_problem1():
     weight = [1, 3, 4]
@@ -39,14 +40,15 @@ def test_1_wei_bag_problem1():
 
     # 先遍历物品, 再遍历背包容量
     for i in range(len(weight)):
-        for j in range(bag_weight, weight[i] - 1, -1):      # 注意是倒序遍历，正序遍历会导致物品重复放入
+        for j in range(bag_weight, weight[i] - 1, -1):  # 注意是倒序遍历，正序遍历会导致物品重复放入
             # 递归公式
             dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
 
     print(dp)
 
+
 if __name__ == "__main__":
-    bag_size = 4            # 背包容量
-    weight = [1, 3, 4]      # 物品重量
-    value = [15, 20, 30]    # 物品价值
+    bag_size = 4  # 背包容量
+    weight = [1, 3, 4]  # 物品重量
+    value = [15, 20, 30]  # 物品价值
     test_2_wei_bag_problem1(bag_size, weight, value)
